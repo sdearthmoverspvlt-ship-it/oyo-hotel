@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OYO Rooms - Hotel Booking</title>
+    <!-- Flask Static CSS Link -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <header class="navbar">
+        <div class="logo"><b>OYO</b> <span>HOTELS & HOMES</span></div>
+        <nav>
+            <a href="#" onclick="showPage(1)"><b>1. Hotel Lobby</b></a>
+            <a href="#" onclick="showPage(2)"><b>2. Guest Entry & Sign-Up</b></a>
+            <a href="#" onclick="showPage(3)"><b>3. Rooms & Menu</b></a>
+        </nav>
+    </header>
+
+    <!-- Marquee Banner -->
+    <div class="marquee-box">
+        <marquee behavior="scroll" direction="left" scrollamount="7">
+            <b>🔥 SPECIAL OFFER: Get up to 50% OFF on Deluxe AC & Suite Rooms! Book your stay today at OYO Premium Hotels! 🔥</b>
+        </marquee>
+    </div>
+
+    <!-- PAGE 1: HOTEL LOBBY -->
+    <section id="page1" class="page-section active-page">
+        <div class="hero-lobby">
+            <div class="hero-content">
+                <h1>Welcome to <b>OYO Grand Palace</b></h1>
+                <p>Experience luxury, comfort, and affordable stays across India. Your perfect vacation starts right here in our grand lobby.</p>
+                <br>
+                <button class="btn-primary" onclick="showPage(2)"><b>▶ Enter Lobby & Book Now</b></button>
+            </div>
+        </div>
+
+        <div class="lobby-highlights">
+            <div class="card">
+                <h3><b>24/7 Front Desk</b></h3>
+                <p>Instant check-in and dedicated concierge service for all guests.</p>
+            </div>
+            <div class="card">
+                <h3><b>Free High-Speed Wi-Fi</b></h3>
+                <p>Stay connected throughout the lobby and inside all rooms.</p>
+            </div>
+            <div class="card">
+                <h3><b>Sanitized Stays</b></h3>
+                <p>100% hygienic rooms with daily housekeeping included.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 2: ENTRY & SIGN-UP FORM -->
+    <section id="page2" class="page-section">
+        <div class="form-container">
+            <h2><b>Guest Entry & Sign-Up</b></h2>
+            <p>Please fill in your details and validate your Gmail to view our room menu.</p>
+            
+            <form id="bookingForm" onsubmit="validateAndProceed(event)">
+                <div class="input-group">
+                    <label for="guestName"><b>Full Name:</b></label>
+                    <input type="text" id="guestName" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="guestEmail"><b>Gmail Address:</b></label>
+                    <input type="email" id="guestEmail" placeholder="example@gmail.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="guestPhone"><b>Mobile Number:</b></label>
+                    <input type="tel" id="guestPhone" placeholder="10-digit mobile number" maxlength="10" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="checkInDate"><b>Check-In Date:</b></label>
+                    <input type="date" id="checkInDate" required>
+                </div>
+
+                <div class="button-row">
+                    <button type="button" class="btn-secondary" onclick="showPage(1)"><b>⬅ Back to Lobby</b></button>
+                    <button type="submit" class="btn-primary"><b>Verify & Open Room Menu ➡</b></button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- PAGE 3: HOTEL MENU & ROOMS -->
+    <section id="page3" class="page-section">
+        <div class="menu-header">
+            <h2><b>Our Hotel Rooms & Dining Menu</b></h2>
+            <p id="welcomeGuestText">Select your preferred room category below.</p>
+        </div>
+
+        <div class="rooms-grid">
+            <!-- Non-AC Room -->
+            <div class="room-card">
+                <img src="https://unsplash.com" alt="Non AC Room">
+                <div class="room-info">
+                    <span class="badge non-ac"><b>NON-AC</b></span>
+                    <h3><b>Classic Non-AC Room</b></h3>
+                    <p>Cozy room with ceiling fan, queen bed, TV, and attached clean washroom.</p>
+                    <div class="price"><b>₹999</b> / night</div>
+                    <button class="btn-book" onclick="confirmBooking('Classic Non-AC Room', 999)"><b>Book Non-AC</b></button>
+                </div>
+            </div>
+
+            <!-- Deluxe AC Room -->
+            <div class="room-card">
+                <img src="https://unsplash.com" alt="Deluxe AC Room">
+                <div class="room-info">
+                    <span class="badge ac"><b>AC DELUXE</b></span>
+                    <h3><b>Deluxe AC Room</b></h3>
+                    <p>Air-conditioned room with king-size bed, mini-fridge, smart TV, and complimentary breakfast.</p>
+                    <div class="price"><b>₹1,899</b> / night</div>
+                    <button class="btn-book" onclick="confirmBooking('Deluxe AC Room', 1899)"><b>Book Deluxe AC</b></button>
+                </div>
+            </div>
+
+            <!-- Royal Luxury Suite -->
+            <div class="room-card">
+                <img src="https://unsplash.com" alt="Luxury Suite">
+                <div class="room-info">
+                    <span class="badge suite"><b>AC SUITE</b></span>
+                    <h3><b>Royal Luxury Suite</b></h3>
+                    <p>Spacious living area, Jacuzzi bath, city balcony view, 24/7 room service, and climate control AC.</p>
+                    <div class="price"><b>₹3,499</b> / night</div>
+                    <button class="btn-book" onclick="confirmBooking('Royal Luxury Suite', 3499)"><b>Book Suite</b></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="food-menu-box">
+            <h3><b>🍽️ In-Room Dining Menu</b></h3>
+            <table>
+                <tr>
+                    <th><b>Item Name</b></th>
+                    <th><b>Category</b></th>
+                    <th><b>Price</b></th>
+                </tr>
+                <tr>
+                    <td><b>Paneer Butter Masala + 2 Butter Naan</b></td>
+                    <td>Main Course (Veg)</td>
+                    <td><b>₹280</b></td>
+                </tr>
+                <tr>
+                    <td><b>Hyderabadi Dum Biryani</b></td>
+                    <td>Main Course (Special)</td>
+                    <td><b>₹350</b></td>
+                </tr>
+                <tr>
+                    <td><b>Masala Chai & Pakora Platter</b></td>
+                    <td>Evening Snacks</td>
+                    <td><b>₹120</b></td>
+                </tr>
+            </table>
+            <br>
+            <button class="btn-secondary" onclick="showPage(1)"><b>🏠 Return to Home Lobby</b></button>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 <b>OYO Rooms Practice Project</b> | Designed for VS Code Learning</p>
+    </footer>
+
+    <!-- Flask Static JS Link -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

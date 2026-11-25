@@ -1,0 +1,311 @@
+/* Reset Margin and Padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f6f8;
+    color: #222222;
+    line-height: 1.6;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #EE2A24; /* Signature OYO Red */
+    color: #ffffff;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    font-size: 14px;
+    background: #ffffff;
+    color: #EE2A24;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-left: 8px;
+}
+
+.navbar nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 25px;
+    padding: 8px 14px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.navbar nav a:hover {
+    background-color: #b81d18;
+}
+
+/* Marquee Styling */
+.marquee-box {
+    background-color: #222222;
+    color: #FFD700; /* Gold Text */
+    padding: 10px 0;
+    font-size: 15px;
+}
+
+/* Page Section Control (Hides inactive pages) */
+.page-section {
+    display: none;
+    padding: 30px 40px;
+    min-height: 80vh;
+}
+
+.active-page {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================== */
+/* PAGE 1: LOBBY STYLING                      */
+/* ========================================== */
+.hero-lobby {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                url('https://unsplash.com');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    padding: 100px 40px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.hero-content h1 {
+    font-size: 44px;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    max-width: 650px;
+    margin: 0 auto 20px auto;
+}
+
+.lobby-highlights {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    flex: 1;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    border-top: 4px solid #EE2A24;
+    text-align: center;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #EE2A24;
+    color: #ffffff;
+    border: none;
+    padding: 14px 28px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #c41c17;
+    transform: scale(1.03);
+}
+
+.btn-secondary {
+    background-color: #555555;
+    color: #ffffff;
+    border: none;
+    padding: 14px 22px;
+    font-size: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background-color: #333333;
+}
+
+/* ========================================== */
+/* PAGE 2: FORM STYLING                       */
+/* ========================================== */
+.form-container {
+    max-width: 520px;
+    margin: 20px auto;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    border-top: 6px solid #EE2A24;
+}
+
+.form-container h2 {
+    margin-bottom: 10px;
+    color: #EE2A24;
+}
+
+.form-container p {
+    margin-bottom: 25px;
+    color: #666666;
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #333333;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #EE2A24;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+/* ========================================== */
+/* PAGE 3: ROOMS & MENU STYLING               */
+/* ========================================== */
+.menu-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.menu-header h2 {
+    font-size: 32px;
+    color: #EE2A24;
+}
+
+.rooms-grid {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.room-card {
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    flex: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.room-card:hover {
+    transform: translateY(-6px);
+}
+
+.room-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.room-info {
+    padding: 20px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.non-ac { background-color: #6c757d; }
+.ac { background-color: #007bff; }
+.suite { background-color: #d4af37; color: #000; }
+
+.price {
+    font-size: 22px;
+    color: #EE2A24;
+    margin: 15px 0;
+}
+
+.btn-book {
+    width: 100%;
+    background-color: #1ab64f; /* OYO Green Book Button */
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-book:hover {
+    background-color: #149640;
+}
+
+/* Dining Menu Table */
+.food-menu-box {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+}
+
+th {
+    background-color: #222222;
+    color: #ffffff;
+}
+
+/* Footer */
+footer {
+    background-color: #222222;
+    color: #ffffff;
+    text-align: center;
+    padding: 18px;
+    margin-top: 30px;
+}
